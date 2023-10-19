@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "@/styles/fonts.css";
 import "@/styles/globals.css";
 import { GridLines } from "@/components/GridLines/GridLines";
+import Logo from "@/components/Logo/Logo";
+import { Container } from "@/components/Container/Container";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,6 +19,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <GridLines />
+        <Container className="py-24px">
+          <Logo />
+        </Container>
         <div className="relative">{children}</div>
       </body>
     </html>

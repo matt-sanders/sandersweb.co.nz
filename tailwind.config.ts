@@ -13,11 +13,26 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    borderRadius: {
+      DEFAULT: "9px",
+    },
+    colors: {
+      black: "#000",
+      dark: {
+        900: "#000",
+      },
+      light: {
+        900: "#fff",
+      },
+      primary: {
+        900: "#E8F6B6",
+      },
+    },
     fontFamily: {
       sans: ["Inter", ...defaultTheme.fontFamily.sans],
     },
     spacing: {
-      "site-gutter": toRem(8),
+      "site-gutter": toRem(12),
       ...Object.fromEntries(spacings.map((px) => [`${px}px`, toRem(px)])),
     },
   },
