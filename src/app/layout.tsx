@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "@/styles/fonts.css";
 import "@/styles/globals.css";
+import { GridLines } from "@/components/GridLines/GridLines";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,7 +15,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <GridLines />
+        <div className="relative">{children}</div>
+      </body>
     </html>
   );
 }

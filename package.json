@@ -13,6 +13,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "clsx": "^2.0.0",
     "next": "13.5.5",
     "react": "^18",
     "react-dom": "^18"

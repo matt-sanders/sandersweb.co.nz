@@ -16,7 +16,10 @@ const config: Config = {
     fontFamily: {
       sans: ["Inter", ...defaultTheme.fontFamily.sans],
     },
-    spacing: Object.fromEntries(spacings.map((px) => [`${px}px`, toRem(px)])),
+    spacing: {
+      "site-gutter": toRem(8),
+      ...Object.fromEntries(spacings.map((px) => [`${px}px`, toRem(px)])),
+    },
   },
   plugins: [],
 };
