@@ -24,7 +24,7 @@ const config: Config = {
       light: {
         900: "#fff",
       },
-      primary: {
+      secondary: {
         900: "#E8F6B6",
       },
     },
@@ -32,6 +32,7 @@ const config: Config = {
       sans: ["Inter", ...defaultTheme.fontFamily.sans],
     },
     spacing: {
+      0: "0px",
       "site-gutter": toRem(12),
       ...Object.fromEntries(spacings.map((px) => [`${px}px`, toRem(px)])),
     },
