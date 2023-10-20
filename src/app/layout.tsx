@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className="relative min-h-screen">
         <GridLines />
         <Container className="py-24px">
           <Logo />
