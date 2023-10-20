@@ -23,7 +23,12 @@ export default function Home() {
             <RevealText text="developer." reveal={ready} idx={4} />
           </span>
         </h1>
-        <p className="text-700">Hi, I&apos;m Matt, and I make cool stuff.</p>
+        <p className="text-700 max-w-2xl">
+          Hi, I&apos;m Matt. I make cool stuff and have been doing so for the
+          last 12 years. From APIs and integrations to spiffy front end
+          animations, I do it all. Check out some of the things I&apos;ve worked
+          on below.
+        </p>
       </Container>
     </main>
   );
