@@ -1,9 +1,9 @@
-import { Shadow } from "@/components/Shadow/Shadow";
+import { Shadow } from '@/components/Shadow/Shadow'
 
 export default function Logo() {
   return (
-    <Shadow className="font-semibold text-700 pointer-events-none">
-      Matt Sanders
+    <Shadow className="text-700 pointer-events-none font-semibold">
+      <div className="py-6px px-12px">Matt Sanders</div>
     </Shadow>
-  );
+  )
 }
