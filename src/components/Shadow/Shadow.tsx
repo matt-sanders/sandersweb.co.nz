@@ -14,9 +14,9 @@ export function Shadow({ children, className }: ShadowProps) {
     <div className={clsx("relative inline-block", className)} ref={ref}>
       <div
         className={clsx(
-          "h-full w-full top-0 left-0 border-2 rounded bg-secondary-900 absolute transition transform ease-[cubic-bezier(.34,2.06,.21,.48)] duration-300 delay-500",
+          "h-full w-full top-0 left-0 border-2 rounded bg-secondary-900 absolute transition transform ease-bounce duration-300",
           {
-            "-translate-x-6px translate-y-6px": isInView,
+            "-translate-x-shadow-offset translate-y-shadow-offset": isInView,
           }
         )}
       />

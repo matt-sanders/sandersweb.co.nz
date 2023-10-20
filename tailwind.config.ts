@@ -1,11 +1,12 @@
 import type { Config } from "tailwindcss";
 import defaultTheme from "tailwindcss/defaultTheme";
+import plugin from "tailwindcss/plugin";
 
 const toRem = (px: number): string => {
   return `${px / 16}rem`;
 };
 
-const spacings = [2, 4, 6, 8, 12, 16, 18, 24, 48];
+const spacings = [2, 4, 6, 8, 12, 16, 18, 24, 48, 72, 124];
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -31,12 +32,49 @@ const config: Config = {
     fontFamily: {
       sans: ["Inter", ...defaultTheme.fontFamily.sans],
     },
+    fontSize: {
+      base: toRem(1),
+      900: [
+        "clamp(2.875rem, -0.4728rem + 16.7391vw, 12.5rem)",
+        {
+          fontWeight: 900,
+          lineHeight: "1",
+        },
+      ],
+      700: [
+        toRem(24),
+        {
+          fontWeight: 600,
+        },
+      ],
+    },
     spacing: {
       0: "0px",
-      "site-gutter": toRem(12),
+      full: "100%",
+      "site-gutter": toRem(24),
+      "shadow-offset": toRem(6),
       ...Object.fromEntries(spacings.map((px) => [`${px}px`, toRem(px)])),
     },
+    textShadow: {
+      DEFAULT: `-${toRem(6)} ${toRem(6)} var(--tw-shadow-color)`,
+    },
+    extend: {
+      transitionTimingFunction: {
+        bounce: "cubic-bezier(.34,2.06,.21,.48)",
+      },
+    },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ matchUtilities, theme }) {
+      matchUtilities(
+        {
+          "text-shadow": (value) => ({
+            textShadow: value,
+          }),
+        },
+        { values: theme("textShadow") }
+      );
+    }),
+  ],
 };
 export default config;
