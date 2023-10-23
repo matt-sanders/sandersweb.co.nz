@@ -4,8 +4,10 @@ import { Logo } from '@/components/Logo/Logo'
 import { Container } from '@/components/Container/Container'
 import '@/styles/fonts.css'
 import '@/styles/globals.css'
+import { PageLayout } from '@/layouts/PageLayout/PageLayout'
+import { ProjectLayout } from '@/layouts/ProjectLayout/ProjectLayout'
 
-export default function App({ Component }: AppProps) {
+export default function App(appProps: AppProps) {
   return (
     <div className="relative min-h-screen">
       <GridLines />
@@ -13,8 +15,32 @@ export default function App({ Component }: AppProps) {
         <Logo />
       </Container>
       <div className="relative">
-        <Component />
+        <Layout {...appProps} />
       </div>
     </div>
   )
+}
+
+function Layout({ Component, pageProps }: AppProps) {
+  switch (pageProps.layout) {
+    case 'ProjectLayout': {
+      const props = {
+        title: '',
+        bgColor: '#eaeaea',
+        ...pageProps,
+      }
+      return (
+        <ProjectLayout {...props}>
+          <Component {...pageProps} />
+        </ProjectLayout>
+      )
+    }
+    default: {
+      return (
+        <PageLayout>
+          <Component {...pageProps} />
+        </PageLayout>
+      )
+    }
+  }
 }

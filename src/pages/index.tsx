@@ -1,8 +1,6 @@
 'use client'
 import { Container } from '@/components/Container/Container'
-import { LinkButton } from '@/components/LinkButton/LinkButton'
 import { ProjectCard } from '@/components/ProjectCard/ProjectCard'
-import { Shadow } from '@/components/Shadow/Shadow'
 import clsx from 'clsx'
 import { useEffect, useState } from 'react'
 

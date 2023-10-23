@@ -1,6 +1,7 @@
 import type { Config } from 'tailwindcss'
 import defaultTheme from 'tailwindcss/defaultTheme'
 import plugin from 'tailwindcss/plugin'
+import typography from '@tailwindcss/typography'
 
 const toRem = (px: number): string => {
   return `${px / 16}rem`
@@ -26,6 +27,9 @@ const config: Config = {
       },
       secondary: {
         900: '#E8F6B6',
+      },
+      project: {
+        nota: '#67BBBC',
       },
     },
     fontFamily: {
@@ -79,6 +83,7 @@ const config: Config = {
     },
   },
   plugins: [
+    typography,
     plugin(function ({ matchUtilities, theme }) {
       matchUtilities(
         {
