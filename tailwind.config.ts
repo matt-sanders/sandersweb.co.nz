@@ -8,11 +8,7 @@ const toRem = (px: number): string => {
 
 const spacings = [2, 4, 6, 8, 12, 16, 18, 24, 48, 72, 124]
 const config: Config = {
-  content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
+  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     borderRadius: {
       DEFAULT: '9px',

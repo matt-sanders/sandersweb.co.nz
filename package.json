@@ -13,11 +13,16 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@mdx-js/loader": "^2.3.0",
+    "@mdx-js/react": "^2.3.0",
+    "@next/mdx": "^13.5.6",
+    "@types/mdx": "^2.0.9",
     "clsx": "^2.0.0",
     "framer-motion": "^10.16.4",
     "next": "13.5.5",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "recma-nextjs-static-props": "^1.0.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.1.4",
@@ -27,6 +32,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/react-transition-group": "^4.4.8",
     "@typescript-eslint/eslint-plugin": "^6.8.0",
     "@typescript-eslint/parser": "^6.8.0",
     "autoprefixer": "^10",
