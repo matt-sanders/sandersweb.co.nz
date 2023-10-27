@@ -1,10 +1,27 @@
 'use client'
 import { Container } from '@/components/Container/Container'
 import { ProjectCard } from '@/components/ProjectCard/ProjectCard'
+import { ProjectRecord } from '@/domain/projects'
+import { getAllProjects } from '@/lib/api'
 import clsx from 'clsx'
+import { GetStaticProps } from 'next'
 import { useEffect, useState } from 'react'
 
-export default function Home() {
+interface Props {
+  projects: ProjectRecord[]
+}
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const projects = await getAllProjects()
+
+  return {
+    props: {
+      projects,
+    },
+  }
+}
+
+export default function Home({ projects }: Props) {
   const [ready, setReady] = useState(false)
   useEffect(() => {
     setReady(true)
@@ -34,18 +51,9 @@ export default function Home() {
         <section className="my-72px">
           <h2 className="text-heading-700 mb-24px md:mb-48px">Projects</h2>
           <ul className="gap-24px grid grid-cols-4">
-            {[...Array(4)].map((_, idx) => (
-              <li key={idx}>
-                <ProjectCard
-                  project={{
-                    name: 'This is the project name',
-                    org: 'Company',
-                    summary:
-                      'This project was a really cool one with lots of stuff to do and things like that, it was great and I really liked it.',
-                    slug: 'project-name',
-                    bg: '',
-                  }}
-                />
+            {projects.map((project) => (
+              <li key={project.slug}>
+                <ProjectCard project={project} />
               </li>
             ))}
           </ul>
