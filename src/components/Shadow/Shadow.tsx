@@ -6,8 +6,9 @@ import { useRef } from 'react'
 interface ShadowProps {
   children: React.ReactNode
   className?: string
+  popDelayMs?: number
 }
-export function Shadow({ children, className }: ShadowProps) {
+export function Shadow({ children, className, popDelayMs }: ShadowProps) {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref)
   return (
@@ -19,6 +20,9 @@ export function Shadow({ children, className }: ShadowProps) {
             '-translate-x-shadow-offset translate-y-shadow-offset': isInView,
           },
         )}
+        style={{
+          transitionDelay: popDelayMs ? `${popDelayMs}ms` : undefined,
+        }}
       />
       <div className="border-dark-900 bg-light-900 relative rounded border-2">
         {children}
