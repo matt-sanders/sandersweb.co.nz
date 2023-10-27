@@ -10,7 +10,9 @@ interface ShadowProps {
 }
 export function Shadow({ children, className, popDelayMs }: ShadowProps) {
   const ref = useRef<HTMLDivElement>(null)
-  const isInView = useInView(ref)
+  const isInView = useInView(ref, {
+    once: true,
+  })
   return (
     <div className={clsx('relative inline-block', className)} ref={ref}>
       <div
