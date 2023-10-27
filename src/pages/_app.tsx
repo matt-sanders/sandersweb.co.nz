@@ -6,13 +6,16 @@ import '@/styles/fonts.css'
 import '@/styles/globals.css'
 import { PageLayout } from '@/layouts/PageLayout/PageLayout'
 import { ProjectLayout } from '@/layouts/ProjectLayout/ProjectLayout'
+import Link from 'next/link'
 
 export default function App(appProps: AppProps) {
   return (
     <div className="relative min-h-screen">
       <GridLines />
       <Container className="py-24px">
-        <Logo />
+        <Link href="/">
+          <Logo />
+        </Link>
       </Container>
       <div className="relative">
         <Layout {...appProps} />
