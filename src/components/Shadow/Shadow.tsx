@@ -11,6 +11,7 @@ interface ShadowProps {
 export function Shadow({ children, className, popDelayMs }: ShadowProps) {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, {
+    amount: 'all',
     once: true,
   })
   return (
