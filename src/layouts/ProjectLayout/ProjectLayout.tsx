@@ -1,4 +1,5 @@
 import { Container } from '@/components/Container/Container'
+import { LinkButton } from '@/components/LinkButton/LinkButton'
 import { ProjectIcons } from '@/components/ProjectIcons/ProjectIcons'
 import { Shadow } from '@/components/Shadow/Shadow'
 import { ProjectRecord } from '@/domain/projects'
@@ -115,6 +116,9 @@ export function ProjectLayout({ children, project }: ProjectLayoutProps) {
           </div>
         </Shadow>
         <div className="prose">{children}</div>
+        <p className="mt-24px">
+          <LinkButton href="/#projects">Back to projects</LinkButton>
+        </p>
       </Container>
     </main>
   )

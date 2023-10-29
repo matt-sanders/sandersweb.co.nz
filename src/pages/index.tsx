@@ -1,4 +1,3 @@
-'use client'
 import { Container } from '@/components/Container/Container'
 import { ProjectCard } from '@/components/ProjectCard/ProjectCard'
 import { ProjectRecord } from '@/domain/projects'
@@ -50,7 +49,7 @@ export default function Home({ projects }: Props) {
             animations, I do it all. Check out some of the things I&apos;ve
             worked on below.
           </p>
-          <section className="my-72px">
+          <section className="my-72px" id="projects">
             <h2 className="text-heading-700 mb-24px md:mb-48px">Projects</h2>
             <ul className="gap-24px grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {projects.map((project) => (
