@@ -29,7 +29,7 @@ export function ProjectLayout({ children, project }: ProjectLayoutProps) {
         <Shadow
           className={clsx(
             'my-48px w-full',
-            'transition-all duration-500 ease-out',
+            'transition duration-500 ease-out',
             {
               '-translate-y-1/4 opacity-0': !pageReady,
               ' opacity-100': pageReady,
@@ -37,14 +37,12 @@ export function ProjectLayout({ children, project }: ProjectLayoutProps) {
           )}
           popDelayMs={1000}
         >
-          <div
-            className={clsx('p-24px gap-24px md:gap-48px grid grid-cols-12')}
-          >
+          <div className={clsx('p-24px gap-24px md:gap-48px flex flex-wrap')}>
             <div
               className={clsx(
-                'px-24px py-48px col-span-12 flex min-h-[100px] items-center justify-center rounded md:col-span-4',
+                'px-24px py-48px flex min-h-[100px] grow basis-[250px] items-center justify-center rounded',
                 bgColor || 'bg-dark-900/10',
-                'transition-all delay-[400ms] duration-500 ease-out',
+                'transition delay-[400ms] duration-500 ease-out',
                 {
                   'translate-x-1/4 opacity-0': !pageReady,
                   ' opacity-100': pageReady,
@@ -54,12 +52,12 @@ export function ProjectLayout({ children, project }: ProjectLayoutProps) {
               <Icon className="w-72px" />
             </div>
 
-            <div className="col-span-12 md:col-span-8">
+            <div className="min-w-[60%] grow-[999] basis-0">
               <div className="text-heading-700 pb-16px mb-16px md:pb-24px overflow-hidden border-b-2">
                 <h1
                   className={clsx(
                     'text-heading-700 break-words',
-                    'transition-all delay-[600ms] duration-500 ease-out',
+                    'transition delay-[600ms] duration-500 ease-out',
                     {
                       'translate-y-1/4 opacity-0': !pageReady,
                       ' opacity-100': pageReady,
@@ -82,7 +80,7 @@ export function ProjectLayout({ children, project }: ProjectLayoutProps) {
                   <p
                     className={clsx(
                       'text-heading-500',
-                      'transition-all delay-[800ms] duration-500 ease-out',
+                      'transition delay-[800ms] duration-500 ease-out',
                       {
                         '-translate-y-1/4 opacity-0': !pageReady,
                         ' opacity-100': pageReady,
