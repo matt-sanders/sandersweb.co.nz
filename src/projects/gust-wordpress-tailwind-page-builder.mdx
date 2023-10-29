@@ -1,0 +1,23 @@
+---
+title: WordPress Tailwind theme & page builder
+tech:
+  - TypeScript
+  - React
+  - Tailwind
+  - WordPress
+  - PHP
+company: Gust
+bgColor: bg-project-gust
+icon: Gust
+summary: A Tailwind CSS theme for WordPress with drag and drop page builder.
+---
+
+Gust is a Tailwind CSS theme for WordPress that allows users to build pages using a drag and drop page builder without having to have knowledge of how Tailwind works. It supports components, templates, dynamic data, etc and keeps track of what class names are being used to create super snappy websites.
+
+This project had two main layers. Firstly there's the page builder, built with React and TypeScript. Users need to be able to drag and drop, edit content, save components, there's a huge amount of functionality that goes into making this piece of the project work as intended.
+
+The page builder also needs to compile the output from Tailwind on the fly, as the user is editing the page. If they add some content in with a new class, we need to be able to display the update correctly. To do this, I decided to use Web Workers. The Tailwind CLI is bundled into the app and provided as a web worker, but to make it work correctly a few packages have to be substituted, as Tailwind generally expects to be run within a Node.js context.
+
+The second main layer is the WordPress/PHP piece. Ultimately, this is being run in a WordPress environment and needs to support all the features that users and developers would expect from a typical WordPress theme. This means supporting custom templates, providing appropriate hooks, etc.
+
+Take a look at the [Gust website](https://www.getgust.com) for more info.

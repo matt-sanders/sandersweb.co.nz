@@ -29,6 +29,7 @@ const config: Config = {
         900: '#E8F6B6',
       },
       project: {
+        gust: '#AFD7FC',
         nota: '#67BBBC',
         'the-doe': '#f4f4f4',
       },
