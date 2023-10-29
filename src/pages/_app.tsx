@@ -8,6 +8,8 @@ import { PageLayout } from '@/layouts/PageLayout/PageLayout'
 import { ProjectLayout } from '@/layouts/ProjectLayout/ProjectLayout'
 import Link from 'next/link'
 
+const year = new Date().getFullYear()
+
 export default function App(appProps: AppProps) {
   return (
     <div className="relative min-h-screen">
@@ -20,6 +22,12 @@ export default function App(appProps: AppProps) {
       <div className="relative">
         <Layout {...appProps} />
       </div>
+      <Container>
+        <footer className="mt-24px pt-12px pb-24px border-t-2">
+          <p>matt@sandersweb.co.nz</p>
+          <p>&copy; {year} Sanders Web Development</p>
+        </footer>
+      </Container>
     </div>
   )
 }
