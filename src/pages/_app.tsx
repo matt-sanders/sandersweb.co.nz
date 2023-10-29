@@ -7,12 +7,16 @@ import '@/styles/globals.css'
 import { PageLayout } from '@/layouts/PageLayout/PageLayout'
 import { ProjectLayout } from '@/layouts/ProjectLayout/ProjectLayout'
 import Link from 'next/link'
+import Head from 'next/head'
 
 const year = new Date().getFullYear()
 
 export default function App(appProps: AppProps) {
   return (
     <div className="relative min-h-screen">
+      <Head>
+        <link rel="shortcut icon" href="/favicon.png" />
+      </Head>
       <GridLines />
       <Container className="py-24px">
         <Link href="/">
