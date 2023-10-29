@@ -4,14 +4,12 @@ import { Logo } from '@/components/Logo/Logo'
 import { Container } from '@/components/Container/Container'
 import '@/styles/fonts.css'
 import '@/styles/globals.css'
-import { PageLayout } from '@/layouts/PageLayout/PageLayout'
-import { ProjectLayout } from '@/layouts/ProjectLayout/ProjectLayout'
 import Link from 'next/link'
 import Head from 'next/head'
 
 const year = new Date().getFullYear()
 
-export default function App(appProps: AppProps) {
+export default function App({ Component, pageProps }: AppProps) {
   return (
     <div className="relative min-h-screen">
       <Head>
@@ -24,7 +22,7 @@ export default function App(appProps: AppProps) {
         </Link>
       </Container>
       <div className="relative">
-        <Layout {...appProps} />
+        <Component {...pageProps} />
       </div>
       <Container>
         <footer className="mt-24px pt-12px pb-24px border-t-2">
@@ -34,28 +32,4 @@ export default function App(appProps: AppProps) {
       </Container>
     </div>
   )
-}
-
-function Layout({ Component, pageProps }: AppProps) {
-  switch (pageProps.layout) {
-    case 'ProjectLayout': {
-      const props = {
-        title: '',
-        bgColor: '#eaeaea',
-        ...pageProps,
-      }
-      return (
-        <ProjectLayout {...props}>
-          <Component {...pageProps} />
-        </ProjectLayout>
-      )
-    }
-    default: {
-      return (
-        <PageLayout>
-          <Component {...pageProps} />
-        </PageLayout>
-      )
-    }
-  }
 }

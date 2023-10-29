@@ -6,6 +6,7 @@ import { getAllProjects } from '@/lib/api'
 import clsx from 'clsx'
 import { GetStaticProps } from 'next'
 import { useEffect, useState } from 'react'
+import { PageLayout } from '@/layouts/PageLayout/PageLayout'
 
 interface Props {
   projects: ProjectRecord[]
@@ -28,38 +29,40 @@ export default function Home({ projects }: Props) {
   }, [])
 
   return (
-    <main>
-      <Container>
-        <h1 className="text-heading-900 mt-48px md:mt-72px mb-72px md:mb-124px">
-          <span className="block">
-            <RevealText text="Freelance" reveal={ready} idx={1} />{' '}
-          </span>
-          <span className="block">
-            <RevealText text="full" reveal={ready} idx={2} />{' '}
-            <RevealText text="stack" reveal={ready} idx={3} />{' '}
-          </span>
-          <span className="block">
-            <RevealText text="developer." reveal={ready} idx={4} />
-          </span>
-        </h1>
-        <p className="text-700 max-w-2xl">
-          Hi, I&apos;m Matt. I make cool stuff and have been doing so for the
-          last 12 years. From APIs and integrations to spiffy front end
-          animations, I do it all. Check out some of the things I&apos;ve worked
-          on below.
-        </p>
-        <section className="my-72px">
-          <h2 className="text-heading-700 mb-24px md:mb-48px">Projects</h2>
-          <ul className="gap-24px grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {projects.map((project) => (
-              <li key={project.slug}>
-                <ProjectCard project={project} className="h-full" />
-              </li>
-            ))}
-          </ul>
-        </section>
-      </Container>
-    </main>
+    <PageLayout>
+      <main>
+        <Container>
+          <h1 className="text-heading-900 mt-48px md:mt-72px mb-72px md:mb-124px">
+            <span className="block">
+              <RevealText text="Freelance" reveal={ready} idx={1} />{' '}
+            </span>
+            <span className="block">
+              <RevealText text="full" reveal={ready} idx={2} />{' '}
+              <RevealText text="stack" reveal={ready} idx={3} />{' '}
+            </span>
+            <span className="block">
+              <RevealText text="developer." reveal={ready} idx={4} />
+            </span>
+          </h1>
+          <p className="text-700 max-w-2xl">
+            Hi, I&apos;m Matt. I make cool stuff and have been doing so for the
+            last 12 years. From APIs and integrations to spiffy front end
+            animations, I do it all. Check out some of the things I&apos;ve
+            worked on below.
+          </p>
+          <section className="my-72px">
+            <h2 className="text-heading-700 mb-24px md:mb-48px">Projects</h2>
+            <ul className="gap-24px grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {projects.map((project) => (
+                <li key={project.slug}>
+                  <ProjectCard project={project} className="h-full" />
+                </li>
+              ))}
+            </ul>
+          </section>
+        </Container>
+      </main>
+    </PageLayout>
   )
 }
 

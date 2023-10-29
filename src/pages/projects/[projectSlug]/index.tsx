@@ -1,10 +1,11 @@
+import { mdxComponents } from '@/components/mdx/mdx'
 import { ProjectRecord } from '@/domain/projects'
+import { ProjectLayout } from '@/layouts/ProjectLayout/ProjectLayout'
 import { getAllProjects, getProjectBySlug } from '@/lib/api'
 import { GetStaticProps } from 'next'
 import { MDXRemote } from 'next-mdx-remote'
 
 interface Props {
-  layout: string
   project: ProjectRecord
 }
 
@@ -32,7 +33,6 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const project = await getProjectBySlug(slug)
   return {
     props: {
-      layout: 'ProjectLayout',
       project,
     },
   }
@@ -40,6 +40,13 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
 
 export default function ProjectPage({ project }: Props) {
   return (
-    <MDXRemote compiledSource={project.content} scope={{}} frontmatter={{}} />
+    <ProjectLayout project={project} key={project.slug}>
+      <MDXRemote
+        compiledSource={project.content}
+        scope={{}}
+        frontmatter={{}}
+        components={mdxComponents}
+      />
+    </ProjectLayout>
   )
 }
