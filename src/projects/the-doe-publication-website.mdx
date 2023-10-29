@@ -1,0 +1,27 @@
+---
+title: Publication website
+tech:
+  - TypeScript
+  - React
+  - Next.js
+  - Tailwind
+  - Node
+  - AWS Lambda
+  - Serverless
+  - Fauna
+  - Stripe
+  - Algolia
+  - Prismic
+company: The Doe
+bgColor: bg-project-the-doe
+icon: TheDoe
+summary: A publication website complete with paid membership subscription, search, and CMS integrations.
+---
+
+The Doe wanted a publication website where users could read verified stories published by anonymous authors. For the most part this was relatively straightforward; we migrated an initial Vue/Nuxt project to React/Next, content was pulled from a CMS ( Prismic ) and most of the content was statically generated using Next's static generation functionality.
+
+Some complexity was introduced with membership. Users needed to be able to sign up and pay what they wanted on a recurring monthly membership. We integrated with Stripe to do this. Then content was gated depending on your membership type. Free users could read _n_ articles a month, while paid users had access to more, along with other benefits.
+
+Paid users could also make use of "insights", which was the recommendation engine we built. [Read more about the recommendation engine project](/projects/the-doe-recommendation-engine). These were displayed to the user on their user dashboard, a dynamically rendered page that showed information specific to the user.
+
+Articles were indexed in Algolia and that powered our search. We chose to implement our own search UI as The Doe had a very specific brand guideline.

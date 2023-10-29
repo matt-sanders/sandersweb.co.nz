@@ -50,10 +50,10 @@ export default function Home({ projects }: Props) {
         </p>
         <section className="my-72px">
           <h2 className="text-heading-700 mb-24px md:mb-48px">Projects</h2>
-          <ul className="gap-24px grid grid-cols-4">
+          <ul className="gap-24px flex flex-wrap">
             {projects.map((project) => (
-              <li key={project.slug}>
-                <ProjectCard project={project} />
+              <li key={project.slug} className="flex-1 basis-[254px]">
+                <ProjectCard project={project} className="h-full" />
               </li>
             ))}
           </ul>

@@ -39,7 +39,6 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
 }
 
 export default function ProjectPage({ project }: Props) {
-  console.log(project)
   return (
     <MDXRemote compiledSource={project.content} scope={{}} frontmatter={{}} />
   )

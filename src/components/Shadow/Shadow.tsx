@@ -27,7 +27,7 @@ export function Shadow({ children, className, popDelayMs }: ShadowProps) {
           transitionDelay: popDelayMs ? `${popDelayMs}ms` : undefined,
         }}
       />
-      <div className="border-dark-900 bg-light-900 relative rounded border-2">
+      <div className="border-dark-900 bg-light-900 relative h-full rounded border-2">
         {children}
       </div>
     </div>

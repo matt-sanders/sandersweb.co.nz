@@ -30,6 +30,7 @@ const config: Config = {
       },
       project: {
         nota: '#67BBBC',
+        'the-doe': '#f4f4f4',
       },
     },
     fontFamily: {

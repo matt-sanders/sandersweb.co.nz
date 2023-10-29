@@ -1,5 +1,6 @@
 import { DefaultProjectIcon } from '@/components/ProjectIcons/DefaultProjectIcon'
 import { NotaProjectIcon } from '@/components/ProjectIcons/NotaProjectIcon'
+import { TheDoeProjectIcon } from '@/components/ProjectIcons/TheDoeProjectIcon'
 import { ProjectIconProps } from '@/components/ProjectIcons/types'
 
 export const ProjectIcons: Record<
@@ -8,4 +9,5 @@ export const ProjectIcons: Record<
 > = {
   Default: DefaultProjectIcon,
   Nota: NotaProjectIcon,
+  TheDoe: TheDoeProjectIcon,
 }

@@ -53,7 +53,7 @@ export function ProjectLayout({ children, project }: ProjectLayoutProps) {
               <div className="text-heading-700 pb-16px mb-16px md:pb-24px overflow-hidden border-b-2">
                 <h1
                   className={clsx(
-                    'text-heading-700',
+                    'text-heading-700 break-words',
                     'transition-all delay-[600ms] duration-500 ease-out',
                     {
                       'translate-y-1/4 opacity-0': !pageReady,
