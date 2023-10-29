@@ -3,6 +3,7 @@ import { ProjectIcons } from '@/components/ProjectIcons/ProjectIcons'
 import { Shadow } from '@/components/Shadow/Shadow'
 import { ProjectRecord } from '@/domain/projects'
 import clsx from 'clsx'
+import Head from 'next/head'
 import { useEffect, useState } from 'react'
 
 interface ProjectLayoutProps {
@@ -20,6 +21,10 @@ export function ProjectLayout({ children, project }: ProjectLayoutProps) {
   const Icon = (icon && ProjectIcons[icon]) || ProjectIcons.Default
   return (
     <main>
+      <Head>
+        <title>{name}</title>
+        {project.summary && <meta name="desc" content={project.summary} />}
+      </Head>
       <Container>
         <Shadow
           className={clsx(
