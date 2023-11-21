@@ -4,8 +4,10 @@ import { ProjectRecord } from '@/domain/projects'
 import { getAllProjects } from '@/lib/api'
 import clsx from 'clsx'
 import { GetStaticProps } from 'next'
-import { useEffect, useState } from 'react'
+import { useRef } from 'react'
 import { PageLayout } from '@/layouts/PageLayout/PageLayout'
+import { useScroll, useTransform, motion } from 'framer-motion'
+import { Logo } from '@/components/Logo/Logo'
 
 interface Props {
   projects: ProjectRecord[]
@@ -21,34 +23,83 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   }
 }
 
-export default function Home({ projects }: Props) {
-  const [ready, setReady] = useState(false)
-  useEffect(() => {
-    setReady(true)
-  }, [])
+function HiContainer() {
+  const screenOneRef = useRef(null)
+  const { scrollYProgress: screenOneScrollYProgress } = useScroll({
+    target: screenOneRef,
+    offset: ['start end', 'end start'],
+  })
+  const textTimes = [0, 0.1, 0.5]
+  const textYPos = useTransform(
+    screenOneScrollYProgress,
+    textTimes,
+    ['0%', '-50%', '50%'],
+    {},
+  )
+  const textScale = useTransform(screenOneScrollYProgress, textTimes, [1, 1, 0])
+  const waveOpacity = useTransform(
+    screenOneScrollYProgress,
+    [0.2, 0.5, 0.7, 1],
+    [0, 1, 1, 0],
+  )
+  const waveRotation = useTransform(
+    screenOneScrollYProgress,
+    [0.2, 0.4, 0.8, 1],
+    [-270, 90, -45, 90],
+  )
+  return (
+    <div className="relative h-[300vh]">
+      <div className="sticky top-0 h-screen">
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
+          <motion.div
+            style={{
+              y: textYPos,
+              scale: textScale,
+              opacity: textScale,
+            }}
+          >
+            <Logo />
+            <div className="text-heading-900 text-shadow shadow-secondary-900 mt-48px">
+              Hey there!
+            </div>
+          </motion.div>
+        </div>
+        <div className="absolute right-1/2 top-1/2 -translate-y-1/2 transform">
+          <motion.div
+            className="text-heading-900"
+            style={{
+              rotate: waveRotation,
+              transformOrigin: 'right bottom',
+              opacity: waveOpacity,
+            }}
+          >
+            👋
+          </motion.div>
+        </div>
+      </div>
+      <div ref={screenOneRef} className="h-screen" />
+    </div>
+  )
+}
 
+export default function Home({ projects }: Props) {
   return (
     <PageLayout>
       <main>
+        <HiContainer />
+        <div className="relative h-screen">
+          <Container className="sticky top-0">
+            <h1 className="text-shadow shadow-secondary-900 text-heading-900 mb-48px">
+              I&apos;m Matt
+            </h1>
+            <p className="text-700 max-w-2xl">
+              I make cool stuff and have been doing so for the last 12 years.
+              From APIs and integrations to spiffy front end animations, I do it
+              all. Check out some of the things I&apos;ve worked on below.
+            </p>
+          </Container>
+        </div>
         <Container>
-          <h1 className="text-heading-900 mt-48px md:mt-72px mb-72px md:mb-124px">
-            <span className="block">
-              <RevealText text="Freelance" reveal={ready} idx={1} />{' '}
-            </span>
-            <span className="block">
-              <RevealText text="full" reveal={ready} idx={2} />{' '}
-              <RevealText text="stack" reveal={ready} idx={3} />{' '}
-            </span>
-            <span className="block">
-              <RevealText text="developer." reveal={ready} idx={4} />
-            </span>
-          </h1>
-          <p className="text-700 max-w-2xl">
-            Hi, I&apos;m Matt. I make cool stuff and have been doing so for the
-            last 12 years. From APIs and integrations to spiffy front end
-            animations, I do it all. Check out some of the things I&apos;ve
-            worked on below.
-          </p>
           <section className="my-72px" id="projects">
             <h2 className="text-heading-700 mb-24px md:mb-48px">Projects</h2>
             <ul className="gap-24px grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
