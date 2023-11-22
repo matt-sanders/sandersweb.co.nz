@@ -14,6 +14,11 @@ import {
   useMotionValueEvent,
 } from 'framer-motion'
 import { Logo } from '@/components/Logo/Logo'
+import { MDXRemote } from 'next-mdx-remote'
+import { mdxComponents } from '@/components/mdx/mdx'
+import { Shadow } from '@/components/Shadow/Shadow'
+import { ProjectIcons } from '@/components/ProjectIcons/ProjectIcons'
+import { ProjectView } from '@/components/ProjectView/ProjectView'
 
 interface Props {
   projects: ProjectRecord[]
@@ -203,7 +208,10 @@ function ExplodeString({
   )
 }
 
-function Projects() {
+interface ProjectsProps {
+  projects: ProjectRecord[]
+}
+function Projects({ projects }: ProjectsProps) {
   const enterRef = useRef(null)
   const explodeRef = useRef(null)
   const { scrollYProgress: enterProgress } = useScroll({
@@ -224,8 +232,8 @@ function Projects() {
     WebkitTextStroke: '0.05em #000',
   }
   return (
-    <section className="bg-secondary-900">
-      <div className="relative">
+    <section>
+      <div className="bg-secondary-900 relative">
         <Container className="sticky top-1/2">
           <motion.h2
             className="text-heading-700 text-center"
@@ -261,7 +269,21 @@ function Projects() {
         </Container>
         <div ref={enterRef} className="h-screen" />
         <div ref={explodeRef} className="h-screen" />
-        <div className="h-[50vh]" />
+        <div className="h-50vh" />
+      </div>
+      <div>
+        {projects.map((project, idx) => (
+          <div key={project.slug}>
+            {idx > 0 && (
+              <Container>
+                <hr className="border-dark-900 opacity-40" />
+              </Container>
+            )}
+            <div className="my-72px">
+              <ProjectView project={project} />
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   )
@@ -273,19 +295,7 @@ export default function Home({ projects }: Props) {
       <main>
         <Intro />
         <About />
-        <Projects />
-        <Container>
-          <section className="my-72px" id="projects">
-            <h2 className="text-heading-700 mb-24px md:mb-48px">Projects</h2>
-            <ul className="gap-24px grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              {projects.map((project) => (
-                <li key={project.slug}>
-                  <ProjectCard project={project} className="h-full" />
-                </li>
-              ))}
-            </ul>
-          </section>
-        </Container>
+        <Projects projects={projects} />
       </main>
     </PageLayout>
   )
