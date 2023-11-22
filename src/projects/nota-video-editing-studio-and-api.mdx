@@ -1,0 +1,20 @@
+---
+title: Video editing studio & API
+tech:
+  - TypeScript
+  - React
+  - Next.js
+  - Tailwind
+  - Node
+  - Express.js
+company: Nota
+bgColor: bg-project-nota
+icon: Nota
+order: 1
+---
+
+Nota wanted to allow their users to create short videos based on AI generated content. The ask was for the editor to be kept simple, with some pre-built templates, to help editors get their short reels out fast. Achieving this required a few moving parts.
+
+Firstly, I created an API that consumed a JSON schema which represented the video. This described things like animation keyframes, when elements should appear and be removed from the scene, etc. We managed to develop an API that was incredibly flexible and was able to accomodate a wide range ( and ever growing! ) list of videos, each with different complexities around animation, timing etc.
+
+The API supported the front end studio, which exposed limited functionality to editors to streamline the video creation process. Things like changing templates, updating colours, rewriting text etc. Most of the complex animation decisions were hidden from the users to streamline editing. Once users had perfected their video, this was passed to the API, with the video now represented as JSON, and the final output was rendered on the server and made available for the user to download.

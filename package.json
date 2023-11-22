@@ -23,6 +23,7 @@
     "next-mdx-remote": "^4.4.1",
     "react": "^18",
     "react-dom": "^18",
+    "react-icons": "^4.12.0",
     "recma-nextjs-static-props": "^1.0.0"
   },
   "devDependencies": {

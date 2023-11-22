@@ -37,7 +37,7 @@ export async function getProjectBySlug(slug: string): Promise<ProjectRecord> {
     icon: toString(frontmatter.icon),
     name: toString(frontmatter.title, 'Untitled'),
     slug: realSlug,
-    summary: toString(frontmatter.summary),
+    order: Number(frontmatter.order),
     tech,
   }
 }
@@ -47,5 +47,5 @@ export async function getAllProjects() {
   const projects = await Promise.all(
     slugs.map((slug) => getProjectBySlug(slug)),
   )
-  return projects
+  return projects.sort((projectA, projectB) => projectA.order - projectB.order)
 }
