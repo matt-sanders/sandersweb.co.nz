@@ -1,3 +1,4 @@
+import { FaGithub } from 'react-icons/fa'
 import { GridLines } from '@/components/GridLines/GridLines'
 import { AppProps } from 'next/app'
 import { Container } from '@/components/Container/Container'
@@ -19,6 +20,14 @@ export default function App({ Component, pageProps }: AppProps) {
       </div>
       <Container>
         <footer className="mt-24px pt-12px pb-24px border-t-2">
+          <a
+            href="https://www.github.com/matt-sanders"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-700"
+          >
+            <FaGithub />
+          </a>
           <p>matt@sandersweb.co.nz</p>
           <p>&copy; {year} Sanders Web Development</p>
         </footer>
