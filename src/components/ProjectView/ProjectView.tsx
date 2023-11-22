@@ -31,7 +31,7 @@ export function ProjectView({ project }: ProjectViewProps) {
           </div>
         </Shadow>
         {project.tech && (
-          <ul className="gap-12px my-24px flex flex-wrap">
+          <ul className="gap-12px mt-48px mb-24px flex flex-wrap">
             {project.tech.map((techItem, idx) => (
               <li key={techItem}>
                 <Shadow popDelayMs={1000 + idx * 80}>

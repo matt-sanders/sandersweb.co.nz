@@ -64,7 +64,7 @@ export function Projects({ projects }: ProjectsProps) {
       <div className="bg-secondary-900 relative">
         <Container className="sticky top-1/2">
           <motion.h2
-            className="text-heading-700 text-center"
+            className="text-heading-700 py-48px text-center"
             style={{
               opacity,
               ...(showOutline ? outlineStyles : {}),
