@@ -1,8 +1,6 @@
 import { Container } from '@/components/Container/Container'
-import { ProjectCard } from '@/components/ProjectCard/ProjectCard'
 import { ProjectRecord } from '@/domain/projects'
 import { getAllProjects } from '@/lib/api'
-import clsx from 'clsx'
 import { GetStaticProps } from 'next'
 import { useRef, useState } from 'react'
 import { PageLayout } from '@/layouts/PageLayout/PageLayout'
@@ -14,10 +12,6 @@ import {
   useMotionValueEvent,
 } from 'framer-motion'
 import { Logo } from '@/components/Logo/Logo'
-import { MDXRemote } from 'next-mdx-remote'
-import { mdxComponents } from '@/components/mdx/mdx'
-import { Shadow } from '@/components/Shadow/Shadow'
-import { ProjectIcons } from '@/components/ProjectIcons/ProjectIcons'
 import { ProjectView } from '@/components/ProjectView/ProjectView'
 
 interface Props {
