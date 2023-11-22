@@ -5,6 +5,6 @@ export interface ProjectRecord {
   icon: string | null
   name: string | null
   slug: string
-  summary: string | null
   tech: string[]
+  order: number
 }
