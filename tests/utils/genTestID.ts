@@ -1,8 +1,7 @@
 /**
- * Creates a random string that can be used to mimick text.
- * Like lorem ipsum, but simpler.
+ * Creates an alphanumeric ID.
  */
-export const genTestString = (): string => {
+export const genTestID = (): string => {
   const length = 10
   let result = ''
   const characters =
