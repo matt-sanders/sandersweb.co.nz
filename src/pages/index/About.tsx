@@ -76,7 +76,7 @@ export function About() {
   })
   return (
     <div className="relative h-screen" ref={targetRef}>
-      <Container className="pt-24px sticky top-0">
+      <Container className="py-24px sticky top-0">
         <h1 className="text-shadow shadow-secondary-900 text-heading-900 mb-48px">
           I&apos;m Matt
         </h1>
