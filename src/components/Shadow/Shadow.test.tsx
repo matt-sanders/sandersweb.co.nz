@@ -1,8 +1,9 @@
 import { Shadow } from '@/components/Shadow/Shadow'
 import { render, screen } from '@testing-library/react'
 import { genTestString } from 'tests/utils/genTestString'
+import { test, expect } from 'vitest'
 
-it('Renders', () => {
+test('Renders', () => {
   const text = genTestString()
   render(
     <Shadow>
