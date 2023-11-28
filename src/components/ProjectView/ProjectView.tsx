@@ -1,5 +1,5 @@
 import { Container } from '@/components/Container/Container'
-import { Mdx } from '@/components/Mdx/Mdx'
+import { Markdown } from '@/components/Markdown/Markdown'
 import { ProjectIcons } from '@/components/ProjectIcons/ProjectIcons'
 import { Shadow } from '@/components/Shadow/Shadow'
 import { ProjectRecord } from '@/domain/projects'
@@ -41,7 +41,7 @@ export function ProjectView({ project }: ProjectViewProps) {
           </ul>
         )}
         <div className="prose">
-          <Mdx mdxContent={project.mdxContent} />
+          <Markdown mdxContent={project.mdxContent} />
         </div>
       </Container>
     </div>

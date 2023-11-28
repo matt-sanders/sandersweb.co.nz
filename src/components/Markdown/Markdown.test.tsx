@@ -1,4 +1,4 @@
-import { Mdx } from '@/components/Mdx/Mdx'
+import { Markdown } from '@/components/Markdown/Markdown'
 import { render, screen } from '@testing-library/react'
 import { serialize } from 'next-mdx-remote/serialize'
 import { expect, test, describe } from 'vitest'
@@ -8,7 +8,7 @@ import { genTestID } from 'tests/utils/genTestID'
 test('renders markdown', async () => {
   const content = genTestString()
   const mdxContent = await serialize(content)
-  render(<Mdx mdxContent={mdxContent.compiledSource} />)
+  render(<Markdown mdxContent={mdxContent.compiledSource} />)
   expect(screen.getByText(content)).toBeInTheDocument()
 })
 
@@ -18,7 +18,7 @@ describe('components', () => {
     test('no href', async () => {
       const content = `[${linkContent}]()`
       const mdxContent = await serialize(content)
-      render(<Mdx mdxContent={mdxContent.compiledSource} />)
+      render(<Markdown mdxContent={mdxContent.compiledSource} />)
       expect(screen.queryByRole('link')).not.toBeInTheDocument()
       expect(screen.getByText(linkContent)).toBeInTheDocument()
     })
@@ -27,7 +27,7 @@ describe('components', () => {
       const href = `https://test.com/${genTestID()}`
       const content = `[${linkContent}](${href})`
       const mdxContent = await serialize(content)
-      render(<Mdx mdxContent={mdxContent.compiledSource} />)
+      render(<Markdown mdxContent={mdxContent.compiledSource} />)
       const anchor = screen.getByRole('link', { name: linkContent })
       expect(anchor).toBeInTheDocument()
       expect(anchor).toHaveAttribute('href', href)
@@ -39,7 +39,7 @@ describe('components', () => {
       const href = `/${genTestID()}`
       const content = `[${linkContent}](${href})`
       const mdxContent = await serialize(content)
-      render(<Mdx mdxContent={mdxContent.compiledSource} />)
+      render(<Markdown mdxContent={mdxContent.compiledSource} />)
       const anchor = screen.getByRole('link', { name: linkContent })
       expect(anchor).toBeInTheDocument()
       expect(anchor).toHaveAttribute('href', href)

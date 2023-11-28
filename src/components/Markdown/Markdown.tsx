@@ -1,14 +1,14 @@
 import { MDXRemote } from 'next-mdx-remote'
-import { Anchor } from '@/components/Mdx/Anchor'
+import { Anchor } from '@/components/Markdown/Anchor'
 
 export const mdxComponents = {
   a: Anchor,
 }
 
-interface MdxProps {
+interface MarkdownProps {
   mdxContent: string
 }
-export function Mdx({ mdxContent }: MdxProps) {
+export function Markdown({ mdxContent }: MarkdownProps) {
   return (
     <MDXRemote
       compiledSource={mdxContent}
