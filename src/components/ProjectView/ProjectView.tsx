@@ -1,9 +1,8 @@
 import { Container } from '@/components/Container/Container'
+import { Mdx } from '@/components/Mdx/Mdx'
 import { ProjectIcons } from '@/components/ProjectIcons/ProjectIcons'
 import { Shadow } from '@/components/Shadow/Shadow'
-import { mdxComponents } from '@/components/mdx/mdx'
 import { ProjectRecord } from '@/domain/projects'
-import { MDXRemote } from 'next-mdx-remote'
 
 interface ProjectViewProps {
   project: ProjectRecord
@@ -42,12 +41,7 @@ export function ProjectView({ project }: ProjectViewProps) {
           </ul>
         )}
         <div className="prose">
-          <MDXRemote
-            compiledSource={project.content}
-            scope={{}}
-            frontmatter={{}}
-            components={mdxComponents}
-          />
+          <Mdx mdxContent={project.mdxContent} />
         </div>
       </Container>
     </div>

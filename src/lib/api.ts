@@ -32,7 +32,7 @@ export async function getProjectBySlug(slug: string): Promise<ProjectRecord> {
 
   return {
     bgColor: toString(frontmatter.bgColor),
-    content: compiledSource,
+    mdxContent: compiledSource,
     company: toString(frontmatter.company),
     icon: toString(frontmatter.icon),
     name: toString(frontmatter.title, 'Untitled'),

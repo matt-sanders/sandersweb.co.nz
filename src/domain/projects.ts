@@ -1,6 +1,6 @@
 export interface ProjectRecord {
   bgColor: string | null
-  content: string
+  mdxContent: string
   company: string | null
   icon: string | null
   name: string | null
