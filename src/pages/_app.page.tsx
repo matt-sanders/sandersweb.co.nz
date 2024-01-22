@@ -10,7 +10,7 @@ const year = new Date().getFullYear()
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen text-dark-900">
       <Head>
         <link rel="shortcut icon" href="/favicon.png" />
       </Head>
@@ -19,7 +19,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
       </div>
       <Container>
-        <footer className="mt-24px pt-12px pb-24px border-t-2">
+        <footer className="mt-24px border-t-2 pb-24px pt-12px">
           <a
             href="https://www.github.com/matt-sanders"
             target="_blank"
