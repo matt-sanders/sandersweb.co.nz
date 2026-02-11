@@ -1,0 +1,18 @@
+---
+title: Workflow builder
+tech:
+  - TypeScript
+  - Node
+  - Express.js
+  - NGINX
+  - RabbitMQ
+  - Conductor OSS
+company: Nota
+bgColor: bg-project-nota
+icon: Nota
+order: 3
+---
+
+Nota wanted to give their users more control over how their data works with Nota's tools without presenting the user with a lot of complex configuration to get there. Think, internal Zapier but without the manual overhead of managing app relationships. This presented a challenge in both data structure, user experience, and architecture.
+
+We landed on a solution that leverages [Conductor](https://github.com/conductor-oss/conductor) for the workflow engine but packages all the complex interactions and data flows between internal applications into "drop-in" actions. These actions validate themselves, restricting user behaviour which reduces complexity and ultimately, reduces bugs.
