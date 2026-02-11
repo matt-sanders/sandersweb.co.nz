@@ -68,7 +68,11 @@ function RevealText({ text, progress }: RevealTextProps) {
   )
 }
 
-export function About() {
+interface AboutProps {
+  yearsActive: number
+}
+
+export function About({ yearsActive }: AboutProps) {
   const targetRef = useRef(null)
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -76,13 +80,13 @@ export function About() {
   })
   return (
     <div className="relative h-screen" ref={targetRef}>
-      <Container className="py-24px sticky top-0">
-        <h1 className="text-shadow shadow-secondary-900 text-heading-900 mb-48px">
+      <Container className="sticky top-0 py-24px">
+        <h1 className="mb-48px text-heading-900 shadow-secondary-900 text-shadow">
           I&apos;m Matt
         </h1>
-        <p className="text-700 max-w-2xl">
+        <p className="max-w-2xl text-700">
           <RevealText
-            text="I make cool stuff and have been doing so for the last 12 years. From APIs and integrations to spiffy front end animations, I do it all. Check out some of the things I've worked on below."
+            text={`I make cool stuff and have been doing so for the last ${yearsActive} years. From APIs and integrations to spiffy front end animations, I do it all. Check out some of the things I've worked on below.`}
             progress={scrollYProgress}
           />
         </p>

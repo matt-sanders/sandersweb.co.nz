@@ -6,26 +6,32 @@ import { About } from '@/pages/index/About'
 import { Intro } from '@/pages/index/Intro'
 import { Projects } from '@/pages/index/Projects'
 
+const YEAR_STARTED = 2012
+
 interface Props {
   projects: ProjectRecord[]
+  yearsActive: number
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const projects = await getAllProjects()
 
+  const currentYear = new Date().getFullYear()
+
   return {
     props: {
       projects,
+      yearsActive: Math.floor(currentYear - YEAR_STARTED),
     },
   }
 }
 
-export default function Home({ projects }: Props) {
+export default function Home({ projects, yearsActive }: Props) {
   return (
     <PageLayout>
       <main>
         <Intro />
-        <About />
+        <About yearsActive={yearsActive} />
         <Projects projects={projects} />
       </main>
     </PageLayout>
